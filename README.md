@@ -28,7 +28,7 @@ API de Claude  →  { temperatura, puntaje, motivo, servicio_sugerido, borrador_
 
 - La **clave de la API** sólo vive en el servidor (variable `ANTHROPIC_API_KEY`). Nunca llega al navegador.
 - La respuesta tiene un **esquema fijo**: la API garantiza que siempre vuelvan los mismos campos, así la página no se rompe.
-- Usa el modelo `claude-opus-5-5` con esfuerzo bajo (`effort: 'low'`), porque clasificar es una tarea simple.
+- Usa `claude-haiku-5-5`, el modelo más económico de Claude, con esfuerzo bajo (`effort: 'low'`), porque clasificar es una tarea simple. Si alguna vez la calidad no alcanza, se cambia el modelo en `lib/calificador.js` (por ejemplo a `claude-sonnet-5-5`).
 
 ## Estructura
 
@@ -77,7 +77,7 @@ Ojo: la demo pública la puede usar cualquiera con el link, y cada consulta se c
 
 ## Costo
 
-Cada consulta es una llamada a la API de Claude y se cobra por tokens (texto de entrada y de salida). Con consultas cortas como las de ejemplo, la estimación es de 1 a 2 centavos de dólar por consulta con `claude-opus-5-5` (se puede bajar mucho cambiando a un modelo más chico como `claude-haiku-5-5` en `lib/calificador.js`, si la calidad alcanza). El costo exacto se ve en la consola de Claude, en Usage.
+Cada consulta es una llamada a la API de Claude y se cobra por tokens (texto de entrada y de salida). Con Claude Haiku 5.5 y consultas cortas como las de ejemplo, la estimación es de alrededor de 0,1 centavos de dólar por consulta: con 5 dólares de crédito alcanza para miles de pruebas.
 
 ## Próximos pasos
 

@@ -21,12 +21,10 @@ function clienteFalso(respuesta) {
   const llamadas = [];
   return {
     llamadas,
-    beta: {
-      messages: {
-        create: async pedido => {
-          llamadas.push(pedido);
-          return respuesta;
-        },
+    messages: {
+      create: async pedido => {
+        llamadas.push(pedido);
+        return respuesta;
       },
     },
   };
@@ -42,9 +40,9 @@ test('devuelve el JSON de Claude y limita el puntaje a 0-100', async () => {
   assert.equal(r.puntaje, 100);
 
   const pedido = cliente.llamadas[0];
-  assert.equal(pedido.model, 'claude-opus-5-5');
+  assert.equal(pedido.model, 'claude-haiku-5-5');
   assert.equal(pedido.output_config.format.type, 'json_schema');
-  assert.equal(pedido.fallbacks, 'default');
+  assert.equal(pedido.output_config.effort, 'low');
   assert.match(pedido.messages[0].content, /Necesito un contador/);
 });
 
