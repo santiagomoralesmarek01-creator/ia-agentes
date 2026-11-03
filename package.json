@@ -1,0 +1,18 @@
+{
+  "name": "ia-agentes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agentes de IA para negocios: calificador de leads, atención al cliente y lector de documentos.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/servidor-local.js",
+    "probar": "node scripts/probar-calificador.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.4.0"
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calificador de leads</title>
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header>
+      <p class="etiqueta">Agente #9 · Demo</p>
+      <h1>Calificador de leads</h1>
+      <p class="bajada">Pegá una consulta que haya llegado por mail, formulario o WhatsApp. El agente te dice si el lead es caliente, tibio o frío, por qué, y te deja un borrador de respuesta.</p>
+    </header>
+
+    <form id="formulario">
+      <label for="consulta">Consulta recibida</label>
+      <textarea id="consulta" name="consulta" rows="7" maxlength="8000" required
+        placeholder="Ej.: Hola, necesito que alguien me lleve el monotributo desde el mes que viene..."></textarea>
+      <div class="ejemplos" id="ejemplos"><span>Probar con:</span></div>
+      <button type="submit" id="boton">Calificar</button>
+    </form>
+
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <section id="resultado" class="resultado" hidden aria-live="polite">
+      <div class="cabecera">
+        <span id="temperatura" class="temperatura"></span>
+        <span id="puntaje" class="puntaje"></span>
+        <span id="urgencia" class="urgencia"></span>
+      </div>
+      <dl>
+        <dt>Motivo</dt><dd id="motivo"></dd>
+        <dt>Necesidad</dt><dd id="necesidad"></dd>
+        <dt>Servicio sugerido</dt><dd id="servicio"></dd>
+        <dt>Contacto</dt><dd id="contacto"></dd>
+        <dt>Siguiente paso</dt><dd id="siguiente"></dd>
+      </dl>
+      <div class="borrador">
+        <div class="borrador-titulo">
+          <h2>Borrador de respuesta</h2>
+          <button type="button" id="copiar" class="secundario">Copiar</button>
+        </div>
+        <p id="borrador"></p>
+      </div>
+    </section>
+
+    <footer>Negocio de ejemplo: Estudio Contable Demo. Los datos que pegues se envían a la API de Claude para analizarlos.</footer>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
